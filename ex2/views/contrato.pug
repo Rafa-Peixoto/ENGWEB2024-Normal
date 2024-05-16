@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1.w3-container.w3-teal Detalhes do Contrato
+
+  .w3-container
+    h2= contrato.idcontrato
+    p Objecto do Contrato: #{contrato.objectoContrato}
+    p Data de Celebração: #{contrato.dataCelebracaoContrato}
+    p Preço Contratual: #{contrato.precoContratual}
+    p NIPC da Entidade Comunicante: 
+      a(href='/entidade/' + contrato.nipc_entidade_comunicante).w3-text-green= contrato.nipc_entidade_comunicante
+    p Entidade Comunicante: #{contrato.entidade_comunicante}
+    p Fundamentação: #{contrato.fundamentacao}
+    a(href='/').w3-button.w3-teal Voltar à página principal

@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1.w3-container.w3-teal Detalhes da Entidade
+
+  .w3-container
+    h2 Identificador: #{nipc}
+    h2 Nome da Entidade: #{entidade}
+    p Somatório do valor dos contratos: #{totalValor}
+
+    if contratos && contratos.length > 0
+      .w3-responsive
+        table.w3-table-all.w3-card-4
+          thead
+            tr
+              th ID Contrato
+              th Objecto do Contrato
+              th Data de Celebração
+              th Preço Contratual
+          tbody
+            each contrato in contratos
+              tr.w3-hover-shadow
+                td
+                  a(href='/contrato/' + contrato.idcontrato).w3-text-blue= contrato.idcontrato
+                td= contrato.objectoContrato
+                td= contrato.dataCelebracaoContrato
+                td= contrato.precoContratual
+    else
+      .w3-container
+        p.w3-text-grey Não há contratos disponíveis para esta entidade.
+
+    a(href='/').w3-button.w3-teal Voltar à página principal
